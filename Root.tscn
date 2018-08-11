@@ -15,7 +15,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sidescroller" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 49.7422, 605.95 )
+position = Vector2( 238.16, 607.458 )
 
 [node name="DebugPanel" type="Node2D" parent="." index="2"]
 
