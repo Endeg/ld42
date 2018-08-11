@@ -44,6 +44,7 @@ func _input(event):
 		if event.pressed and currentCursorPos.x >= 0 and currentCursorPos.y >= 0 and currentCursorPos.x < BOARD_WIDTH and currentCursorPos.y < BOARD_HEIGHT:
 			if board.has(currentCursorPos):
 				selectedSlotStart = currentCursorPos
+				_animateSelectedItemAt(selectedSlotStart)
 				#TODO: Animate selected item
 			elif selectedSlotStart != null and _reachableSlot(selectedSlotStart, currentCursorPos):
 				_moveItem(selectedSlotStart, currentCursorPos)
@@ -51,6 +52,14 @@ func _input(event):
 				selectedSlotStart = null
 			
 		_updateDebugSlot()
+
+func _animateSelectedItemAt(selectedKey):
+	for key in board.keys():
+		var itemNode = _getItemNodeAt(selectedSlotStart)
+		if key == selectedKey:
+			itemNode.select()
+		else:
+			itemNode.deselect()
 
 func _reachableSlot(src, dest):
 	#TODO: implement if restrictions will look necessary

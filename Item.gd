@@ -20,6 +20,8 @@ var skipped = false
 var targetPos = null
 var moveWeight = 0.0
 
+var selected = false
+
 func _ready():
 	$Label.text = name
 	set_process(true)
@@ -34,6 +36,16 @@ func _process(delta):
 		if targetPos == position:
 			targetPos = null
 			moveWeight = 0.0
+
+func select():
+	if not selected:
+		$AnimationPlayer.play("Selected", 0.5)
+		selected = true
+	
+func deselect():
+	if selected:
+		$AnimationPlayer.play("Idle", 0.5)
+		selected = false
 
 func setType(typeName):
 	itemType = typeName
