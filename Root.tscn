@@ -1,18 +1,9 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/inventory-slot.png" type="Texture" id=1]
+[ext_resource path="res://Backpack.tscn" type="PackedScene" id=1]
 
 [node name="Root" type="Node" index="0"]
 
-[node name="Backpack" type="Node2D" parent="." index="0"]
-
-[node name="Slots" type="Sprite" parent="Backpack" index="0"]
-
-texture = ExtResource( 1 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 896, 448 )
-region_filter_clip = true
-_sections_unfolded = [ "Material", "Offset", "Region", "Transform" ]
+[node name="Backpack" parent="." index="0" instance=ExtResource( 1 )]
 
 
