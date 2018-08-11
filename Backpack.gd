@@ -15,7 +15,7 @@ func _ready():
 	global = get_node("/root/Global")
 	assert global != null
 	
-	for i in range(100):
+	for i in range(10):
 		addItem(global.getRandomItemType())
 
 func _findFreeSpace():
@@ -58,12 +58,31 @@ func _figureMatches(left, top, right, bottom, itemType):
 	var result = true
 	for x in range(left, right + 1):
 		for y in range(top, bottom + 1):
-			result = result and _getItemTypeAt(x, y) == itemType
+			var itemTypeToCheck = _getItemTypeAt(x, y)
+			var matching = itemTypeToCheck == itemType
+			result = result and matching
+			if not result:
+				return result
 	return result
 
 func _removeFigure(left, top, right, bottom):
-	#print("Should remove figure")
-	pass
+	print("Should remove figure: left=" + var2str(left) + ", top=" + var2str(top) + ", right=" + var2str(right) + ", bottom=" + var2str(bottom))
+	for x in range(left, right + 1):
+		for y in range(top, bottom + 1):
+			_clearItemAt(x, y)
+
+func _clearItemAt(x, y):
+	var key = Vector2(x, y)
+	
+	assert board.has(key)
+	
+	var instanceName = board[key]
+	assert instanceName != null
+	var itemNode = get_node("./" + instanceName)
+	itemNode.queue_free()
+	
+	board.erase(key)
+	
 
 func addItem(itemType):
 	var freeSpace = _findFreeSpace()
