@@ -43,10 +43,10 @@ func _input(event):
 	elif event is InputEventMouseButton:
 		if event.pressed and currentCursorPos.x >= 0 and currentCursorPos.y >= 0 and currentCursorPos.x < BOARD_WIDTH and currentCursorPos.y < BOARD_HEIGHT:
 			if board.has(currentCursorPos):
-				selectedSlotStart = Vector2(currentCursorPos)
+				selectedSlotStart = currentCursorPos
 				#TODO: Animate selected item
 			elif selectedSlotStart != null and _reachableSlot(selectedSlotStart, currentCursorPos):
-				_moveItem(selectedSlotStart, Vector2(currentCursorPos))
+				_moveItem(selectedSlotStart, currentCursorPos)
 				#TODO: Move animation
 				selectedSlotStart = null
 			
