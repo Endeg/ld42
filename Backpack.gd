@@ -31,7 +31,7 @@ func _createItemAt(itemType, x, y):
 	itemInstance.position = Vector2(x * SLOT_SIZE + (SLOT_SIZE / 2), y * SLOT_SIZE + (SLOT_SIZE / 2))
 	add_child(itemInstance)
 	
-	print("Board set " + var2str(x) + "x" + var2str(y) + " to '" + itemInstance.name + "'")
+	#print("Board set " + var2str(x) + "x" + var2str(y) + " to '" + itemInstance.name + "'")
 	board[Vector2(x, y)] = itemInstance.name
 	
 	_checkMatches()
@@ -47,6 +47,22 @@ func _getItemTypeAt(x, y):
 	return null
 	
 func _checkMatches():
+	for y in range(BOARD_HEIGHT):
+		for x in range(BOARD_WIDTH):
+			var rootItemType = _getItemTypeAt(x, y)
+			if _figureMatches(x, y, x + 4, y, rootItemType):
+				#TODO: score system
+				_removeFigure(x, y, x + 4, y)
+
+func _figureMatches(left, top, right, bottom, itemType):
+	var result = true
+	for x in range(left, right + 1):
+		for y in range(top, bottom + 1):
+			result = result and _getItemTypeAt(x, y) == itemType
+	return result
+
+func _removeFigure(left, top, right, bottom):
+	#print("Should remove figure")
 	pass
 
 func addItem(itemType):
