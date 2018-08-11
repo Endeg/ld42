@@ -13,9 +13,29 @@ var global = null
 
 var itemClass = load("res://Item.tscn")
 
+var cursor = null
+
+var currentCursorPos = Vector2(0, 0)
+
 func _ready():
 	global = get_node("/root/Global")
 	assert global != null
+	
+	cursor = $Cursor
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		var mousePos = get_viewport().get_mouse_position()
+		mousePos = mousePos - position
+		
+		cursor.visible = false
+		
+		if mousePos.x > 0 and mousePos.y > 0 and mousePos.x < BOARD_WIDTH * SLOT_SIZE and mousePos.y < BOARD_HEIGHT * SLOT_SIZE:
+			cursor.visible = true
+			currentCursorPos.x = int(mousePos.x / SLOT_SIZE)
+			currentCursorPos.y = int(mousePos.y / SLOT_SIZE)
+			cursor.position.x = currentCursorPos.x * SLOT_SIZE
+			cursor.position.y = currentCursorPos.y * SLOT_SIZE
 
 func _findFreeSpace():
 	for y in range(BOARD_HEIGHT):

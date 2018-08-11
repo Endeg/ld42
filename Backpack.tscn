@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Backpack.gd" type="Script" id=1]
 [ext_resource path="res://assets/inventory-slot.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [node name="Backpack" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Slots" type="Sprite" parent="." index="0"]
 
@@ -14,6 +16,14 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 896, 448 )
 region_filter_clip = true
-_sections_unfolded = [ "Material", "Offset", "Region", "Transform" ]
+_sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Z Index" ]
+
+[node name="Cursor" type="Sprite" parent="." index="1"]
+
+self_modulate = Color( 1, 1, 1, 0.292824 )
+z_index = 1
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Visibility" ]
 
 
