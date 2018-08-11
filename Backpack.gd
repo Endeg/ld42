@@ -15,7 +15,7 @@ func _ready():
 	global = get_node("/root/Global")
 	assert global != null
 	
-	for i in range(10):
+	for i in range(1000):
 		addItem(global.getRandomItemType())
 
 func _findFreeSpace():
@@ -50,9 +50,16 @@ func _checkMatches():
 	for y in range(BOARD_HEIGHT):
 		for x in range(BOARD_WIDTH):
 			var rootItemType = _getItemTypeAt(x, y)
+			if rootItemType == null:
+				continue
+
+			#Horizontal lines
 			if _figureMatches(x, y, x + 4, y, rootItemType):
-				#TODO: score system
-				_removeFigure(x, y, x + 4, y)
+				_removeFigure(x, y, x + 4, y, rootItemType, 5)
+			if _figureMatches(x, y, x + 3, y, rootItemType):
+				_removeFigure(x, y, x + 3, y, rootItemType, 4)
+			if _figureMatches(x, y, x + 2, y, rootItemType):
+				_removeFigure(x, y, x + 2, y, rootItemType, 3)
 
 func _figureMatches(left, top, right, bottom, itemType):
 	var result = true
@@ -65,7 +72,8 @@ func _figureMatches(left, top, right, bottom, itemType):
 				return result
 	return result
 
-func _removeFigure(left, top, right, bottom):
+func _removeFigure(left, top, right, bottom, itemType, scoreMultiplicator):
+	#TODO: apply score according to item and multiplicator
 	print("Should remove figure: left=" + var2str(left) + ", top=" + var2str(top) + ", right=" + var2str(right) + ", bottom=" + var2str(bottom))
 	for x in range(left, right + 1):
 		for y in range(top, bottom + 1):
