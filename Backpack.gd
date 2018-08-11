@@ -133,6 +133,9 @@ func _removeFigure(left, top, right, bottom, itemType, scoreMultiplicator):
 
 func _clearItemAt(x, y):
 	var key = Vector2(x, y)
+	if selectedSlotStart == key:
+		selectedSlotStart = null
+		_updateDebugSlot()
 	
 	assert board.has(key)
 	
