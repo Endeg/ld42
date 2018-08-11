@@ -45,7 +45,7 @@ func spawnGroupOfItems(count):
 		
 		base += randi() % 10 - 20
 		
-		print("Item added.")
+		#print("Item added.")
 
 func _on_Timer_timeout():
 	var dice = randi() % 50

@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 [node name="Backpack" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 10, 10 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sidescroller" parent="." index="1" instance=ExtResource( 3 )]
 
@@ -19,7 +19,6 @@ position = Vector2( 238.16, 607.458 )
 
 [node name="DebugPanel" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 976.802, 67.9733 )
 
 [node name="Header" type="Label" parent="DebugPanel" index="0"]
@@ -90,6 +89,46 @@ group = null
 text = "Reset"
 flat = false
 align = 1
+
+[node name="StartSlot" type="Label" parent="DebugPanel" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 79.0
+margin_right = 57.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="FinishSlot" type="Label" parent="DebugPanel" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 97.0
+margin_right = 58.0
+margin_bottom = 111.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="pressed" from="DebugPanel/AddItemButton" to="." method="_on_AddItemButton_pressed"]
 

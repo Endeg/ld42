@@ -17,11 +17,14 @@ var cursor = null
 
 var currentCursorPos = Vector2(0, 0)
 
+var selectedSlotStart = null
+
 func _ready():
 	global = get_node("/root/Global")
 	assert global != null
 	
 	cursor = $Cursor
+	assert cursor != null
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -36,6 +39,22 @@ func _input(event):
 			currentCursorPos.y = int(mousePos.y / SLOT_SIZE)
 			cursor.position.x = currentCursorPos.x * SLOT_SIZE
 			cursor.position.y = currentCursorPos.y * SLOT_SIZE
+	elif event is InputEventMouseButton:
+		if board.has(currentCursorPos):
+			selectedSlotStart = currentCursorPos
+		elif selectedSlotStart != null and _reachableSlot(selectedSlotStart, currentCursorPos):
+			_moveItem(selectedSlotStart, currentCursorPos)
+			selectedSlotStart = null
+			
+		_updateDebugSlot()
+		#_processSlotClick()
+
+func _reachableSlot(src, dest):
+	#TODO: implement if restrictions will look necessary
+	return true
+	
+func _moveItem(src, dest):
+	print("Moving item from ", src, " to ", dest)
 
 func _findFreeSpace():
 	for y in range(BOARD_HEIGHT):
@@ -95,7 +114,7 @@ func _figureMatches(left, top, right, bottom, itemType):
 
 func _removeFigure(left, top, right, bottom, itemType, scoreMultiplicator):
 	#TODO: apply score according to item and multiplicator
-	print("Should remove figure: left=" + var2str(left) + ", top=" + var2str(top) + ", right=" + var2str(right) + ", bottom=" + var2str(bottom))
+	#print("Should remove figure: left=" + var2str(left) + ", top=" + var2str(top) + ", right=" + var2str(right) + ", bottom=" + var2str(bottom))
 	for x in range(left, right + 1):
 		for y in range(top, bottom + 1):
 			_clearItemAt(x, y)
@@ -123,3 +142,9 @@ func addItem(itemType):
 		return true
 	else:
 		return false
+
+func _updateDebugSlot():
+	var startSlotLabel = get_node("../DebugPanel/StartSlot")
+	if startSlotLabel != null:
+		startSlotLabel.text = "Start: " + var2str(selectedSlotStart)
+	
