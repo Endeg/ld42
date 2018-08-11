@@ -1,5 +1,17 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/inventory-slot.png" type="Texture" id=1]
 
 [node name="Root" type="Node" index="0"]
+
+[node name="Backpack" type="Node2D" parent="." index="0"]
+
+[node name="Slots" type="Sprite" parent="Backpack" index="0"]
+
+position = Vector2( 308.984, 222.134 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 256 )
+_sections_unfolded = [ "Region" ]
 
 
