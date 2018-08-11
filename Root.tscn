@@ -10,8 +10,10 @@
 
 position = Vector2( 308.984, 222.134 )
 texture = ExtResource( 1 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 256, 256 )
-_sections_unfolded = [ "Region" ]
+region_filter_clip = true
+_sections_unfolded = [ "Material", "Offset", "Region" ]
 
 

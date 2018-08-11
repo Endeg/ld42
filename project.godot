@@ -11,7 +11,13 @@ config_version=3
 [application]
 
 config/name="ld42"
+run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [rendering]
 
