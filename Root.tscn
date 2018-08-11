@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Root.gd" type="Script" id=1]
 [ext_resource path="res://Backpack.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sidescroller.tscn" type="PackedScene" id=3]
 
 [node name="Root" type="Node" index="0"]
 
@@ -12,8 +13,11 @@ script = ExtResource( 1 )
 position = Vector2( 10, 10 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="DebugPanel" type="Node2D" parent="." index="1"]
+[node name="Sidescroller" parent="." index="1" instance=ExtResource( 3 )]
 
+[node name="DebugPanel" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 position = Vector2( 976.802, 67.9733 )
 
 [node name="Header" type="Label" parent="DebugPanel" index="0"]

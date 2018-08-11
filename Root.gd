@@ -12,4 +12,4 @@ func _on_AddItemButton_pressed():
 
 func _on_ResetButton_pressed():
 	get_tree().reload_current_scene()
-	#TODO: move it to Global.gd and reset gloabal vars
+	#TODO: move it to Global.gd and reset global vars
