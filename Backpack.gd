@@ -5,6 +5,8 @@ const BOARD_HEIGHT = 7
 
 const SLOT_SIZE = 64
 
+const MATCH_RANGES = [5, 4, 3]
+
 var board = {}
 
 var global = null
@@ -15,7 +17,7 @@ func _ready():
 	global = get_node("/root/Global")
 	assert global != null
 	
-	for i in range(1000):
+	for i in range(30):
 		addItem(global.getRandomItemType())
 
 func _findFreeSpace():
@@ -53,13 +55,13 @@ func _checkMatches():
 			if rootItemType == null:
 				continue
 
-			#Horizontal lines
-			if _figureMatches(x, y, x + 4, y, rootItemType):
-				_removeFigure(x, y, x + 4, y, rootItemType, 5)
-			if _figureMatches(x, y, x + 3, y, rootItemType):
-				_removeFigure(x, y, x + 3, y, rootItemType, 4)
-			if _figureMatches(x, y, x + 2, y, rootItemType):
-				_removeFigure(x, y, x + 2, y, rootItemType, 3)
+			for i in MATCH_RANGES:
+				#Horizontal lines
+				if _figureMatches(x, y, x + i - 1, y, rootItemType):
+					_removeFigure(x, y, x + i - 1, y, rootItemType, i)
+				#Vertical lines
+				if _figureMatches(x, y, x, y + i - 1, rootItemType):
+					_removeFigure(x, y, x, y + i - 1, rootItemType, i)
 
 func _figureMatches(left, top, right, bottom, itemType):
 	var result = true
@@ -90,7 +92,6 @@ func _clearItemAt(x, y):
 	itemNode.queue_free()
 	
 	board.erase(key)
-	
 
 func addItem(itemType):
 	var freeSpace = _findFreeSpace()
