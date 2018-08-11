@@ -32,6 +32,7 @@ func _createItemAt(itemType, x, y):
 	itemInstance.setType(itemType)
 	itemInstance.position = Vector2(x * SLOT_SIZE + (SLOT_SIZE / 2), y * SLOT_SIZE + (SLOT_SIZE / 2))
 	add_child(itemInstance)
+	itemInstance.startAppearing()
 	
 	#print("Board set " + var2str(x) + "x" + var2str(y) + " to '" + itemInstance.name + "'")
 	board[Vector2(x, y)] = itemInstance.name

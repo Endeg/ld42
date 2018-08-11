@@ -1,27 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Backpack.tscn" type="PackedScene" id=1]
-
-[sub_resource type="GDScript" id=1]
-
-script/source = "extends Node
-
-var backpack = null
-var global = null
-
-func _ready():
-	backpack = $Backpack
-	global = get_node(\"/root/Global\")
-
-func _on_AddItemButton_pressed():
-	backpack.addItem(global.getRandomItemType())
-"
+[ext_resource path="res://Root.gd" type="Script" id=1]
+[ext_resource path="res://Backpack.tscn" type="PackedScene" id=2]
 
 [node name="Root" type="Node" index="0"]
 
-script = SubResource( 1 )
+script = ExtResource( 1 )
 
-[node name="Backpack" parent="." index="0" instance=ExtResource( 1 )]
+[node name="Backpack" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 10, 10 )
 _sections_unfolded = [ "Transform" ]
