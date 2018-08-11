@@ -90,7 +90,7 @@ func _clearItemAt(x, y):
 	var instanceName = board[key]
 	assert instanceName != null
 	var itemNode = get_node("./" + instanceName)
-	itemNode.queue_free()
+	itemNode.startRemoving()
 	
 	board.erase(key)
 
