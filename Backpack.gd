@@ -39,17 +39,18 @@ func _input(event):
 			currentCursorPos.y = int(mousePos.y / SLOT_SIZE)
 			cursor.position.x = currentCursorPos.x * SLOT_SIZE
 			cursor.position.y = currentCursorPos.y * SLOT_SIZE
+		_updateDebugSlot()
 	elif event is InputEventMouseButton:
-		if board.has(currentCursorPos):
-			selectedSlotStart = currentCursorPos
-			#TODO: Animate selected item
-		elif selectedSlotStart != null and _reachableSlot(selectedSlotStart, currentCursorPos):
-			_moveItem(selectedSlotStart, currentCursorPos)
-			#TODO: Move animation
-			selectedSlotStart = null
+		if event.pressed and currentCursorPos.x >= 0 and currentCursorPos.y >= 0 and currentCursorPos.x < BOARD_WIDTH and currentCursorPos.y < BOARD_HEIGHT:
+			if board.has(currentCursorPos):
+				selectedSlotStart = Vector2(currentCursorPos)
+				#TODO: Animate selected item
+			elif selectedSlotStart != null and _reachableSlot(selectedSlotStart, currentCursorPos):
+				_moveItem(selectedSlotStart, Vector2(currentCursorPos))
+				#TODO: Move animation
+				selectedSlotStart = null
 			
 		_updateDebugSlot()
-		#_processSlotClick()
 
 func _reachableSlot(src, dest):
 	#TODO: implement if restrictions will look necessary
@@ -158,4 +159,8 @@ func _updateDebugSlot():
 	var startSlotLabel = get_node("../DebugPanel/StartSlot")
 	if startSlotLabel != null:
 		startSlotLabel.text = "Start: " + var2str(selectedSlotStart)
+		
+	var cursorLabel = get_node("../DebugPanel/Cursor")
+	if cursorLabel != null:
+		cursorLabel.text = "Cursor: " + var2str(currentCursorPos)
 	

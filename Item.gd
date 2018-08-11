@@ -15,12 +15,16 @@ var itemType = null
 var removing = false
 var skipped = false
 
+func _ready():
+	$Label.text = name
+
 func setType(typeName):
 	itemType = typeName
 	for child in $Graphic.get_children():
 		child.visible = child.name == typeName
 
 func scheduleForDeletion():
+	print("Item: ", name, " to be deleted")
 	queue_free()
 
 func startRemoving():
