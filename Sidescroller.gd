@@ -29,10 +29,9 @@ func _process(delta):
 				backpack.addItem(child.itemType)
 				child.startRemoving()
 
-
-func _on_Timer_timeout():
-	var base = 1300
-	for i in range(randi() % 10):
+func spawnGroupOfItems(count):
+	var base = get_viewport().size.x - position.x + 200 + (randi() % 100) - 200
+	for i in range(randi() % count):
 		var itemInstance = itemClass.instance()
 		itemInstance.setType(global.getRandomItemType())
 		items.add_child(itemInstance)
@@ -41,6 +40,16 @@ func _on_Timer_timeout():
 		itemInstance.position.y = 0
 		itemInstance.scale = Vector2(0.25, 0.25)
 		
-		base += randi() % 5
+		base += randi() % 10 - 20
 		
 		print("Item added.")
+
+func _on_Timer_timeout():
+	var dice = randi() % 50
+	
+	if dice > 44:
+		spawnGroupOfItems(10)
+	elif dice > 25:
+		spawnGroupOfItems(7)
+	elif dice > 10:
+		spawnGroupOfItems(4)
