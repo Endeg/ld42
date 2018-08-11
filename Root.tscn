@@ -1,12 +1,79 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Backpack.tscn" type="PackedScene" id=1]
 
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node
+
+var backpack = null
+var global = null
+
+func _ready():
+	backpack = $Backpack
+	global = get_node(\"/root/Global\")
+
+func _on_AddItemButton_pressed():
+	backpack.addItem(global.getRandomItemType())
+"
+
 [node name="Root" type="Node" index="0"]
+
+script = SubResource( 1 )
 
 [node name="Backpack" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 10, 10 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="DebugPanel" type="Node2D" parent="." index="1"]
+
+position = Vector2( 976.802, 67.9733 )
+
+[node name="Header" type="Label" parent="DebugPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Debug panel"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AddItemButton" type="Button" parent="DebugPanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 15.0
+margin_top = 21.0
+margin_right = 86.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Add item"
+flat = false
+align = 1
+
+[connection signal="pressed" from="DebugPanel/AddItemButton" to="." method="_on_AddItemButton_pressed"]
 
 

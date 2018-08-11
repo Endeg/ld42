@@ -62,6 +62,7 @@ func _checkMatches():
 				#Vertical lines
 				if _figureMatches(x, y, x, y + i - 1, rootItemType):
 					_removeFigure(x, y, x, y + i - 1, rootItemType, i)
+				#TODO: Diagonal lines?
 
 func _figureMatches(left, top, right, bottom, itemType):
 	var result = true
