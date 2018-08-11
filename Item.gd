@@ -12,6 +12,8 @@ const APPEAR_ANIMATIONS = [
 
 var itemType = null
 
+var removing = false
+
 func setType(typeName):
 	itemType = typeName
 	for child in $Graphic.get_children():
@@ -21,7 +23,9 @@ func scheduleForDeletion():
 	queue_free()
 
 func startRemoving():
-	$AnimationPlayer.play(DISSAPEAR_ANIMATIONS[randi() % DISSAPEAR_ANIMATIONS.size()], 0.5)
+	if not removing:
+		$AnimationPlayer.play(DISSAPEAR_ANIMATIONS[randi() % DISSAPEAR_ANIMATIONS.size()], 0.5)
+		removing = true
 
 func startAppearing():
 	$AnimationPlayer.play(APPEAR_ANIMATIONS[randi() % APPEAR_ANIMATIONS.size()], 0.75)

@@ -1,12 +1,29 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sidescroller.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
-[node name="Sidescroller" type="Node2D"]
+[node name="Sidescroller" type="Node2D" index="0"]
 
-position = Vector2( 69.3376, 613.487 )
+z_index = -4
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Items" type="Node" parent="." index="0"]
+[node name="Items" type="Node2D" parent="." index="0"]
+
+[node name="Timer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = true
+
+[node name="JustMarker" type="Sprite" parent="." index="2"]
+
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

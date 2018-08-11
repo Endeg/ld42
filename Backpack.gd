@@ -16,9 +16,6 @@ var itemClass = load("res://Item.tscn")
 func _ready():
 	global = get_node("/root/Global")
 	assert global != null
-	
-	for i in range(30):
-		addItem(global.getRandomItemType())
 
 func _findFreeSpace():
 	for y in range(BOARD_HEIGHT):
