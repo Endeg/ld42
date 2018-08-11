@@ -13,6 +13,7 @@ const APPEAR_ANIMATIONS = [
 var itemType = null
 
 var removing = false
+var skipped = false
 
 func setType(typeName):
 	itemType = typeName
