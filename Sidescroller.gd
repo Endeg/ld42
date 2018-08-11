@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = 100
+const SPEED = 10
 
 var items = null
 var global = null

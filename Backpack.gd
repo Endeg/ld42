@@ -42,8 +42,10 @@ func _input(event):
 	elif event is InputEventMouseButton:
 		if board.has(currentCursorPos):
 			selectedSlotStart = currentCursorPos
+			#TODO: Animate selected item
 		elif selectedSlotStart != null and _reachableSlot(selectedSlotStart, currentCursorPos):
 			_moveItem(selectedSlotStart, currentCursorPos)
+			#TODO: Move animation
 			selectedSlotStart = null
 			
 		_updateDebugSlot()
@@ -55,6 +57,11 @@ func _reachableSlot(src, dest):
 	
 func _moveItem(src, dest):
 	print("Moving item from ", src, " to ", dest)
+	var itemNode = _getItemNodeAt(src)
+	itemNode.position = Vector2(dest.x * SLOT_SIZE + (SLOT_SIZE / 2), dest.y * SLOT_SIZE + (SLOT_SIZE / 2))
+	board[dest] = board[src]
+	board.erase(src)
+	_checkMatches()
 
 func _findFreeSpace():
 	for y in range(BOARD_HEIGHT):
@@ -75,12 +82,16 @@ func _createItemAt(itemType, x, y):
 	
 	_checkMatches()
 
+func _getItemNodeAt(key):
+	var instanceName = board[key]
+	var itemNode = get_node("./" + instanceName)
+	assert itemNode != null
+	return itemNode
+
 func _getItemTypeAt(x, y):
 	var key = Vector2(x, y)
 	if board.has(key):
-		var instanceName = board[key]
-		var itemNode = get_node("./" + instanceName)
-		assert itemNode != null
+		var itemNode = _getItemNodeAt(key)
 		return itemNode.itemType
 	
 	return null
