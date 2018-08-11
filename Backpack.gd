@@ -17,7 +17,7 @@ func _ready():
 	global = get_node("/root/Global")
 	assert global != null
 	
-	for i in range(30):
+	for i in range(3000):
 		addItem(global.getRandomItemType())
 
 func _findFreeSpace():
