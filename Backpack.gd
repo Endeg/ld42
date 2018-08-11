@@ -25,21 +25,38 @@ func _findFreeSpace():
 				return [x, y]
 	return []
 
+func _createItemAt(itemType, x, y):
+	var itemInstance = itemClass.instance()
+	itemInstance.setType(itemType)
+	itemInstance.position = Vector2(x * SLOT_SIZE + (SLOT_SIZE / 2), y * SLOT_SIZE + (SLOT_SIZE / 2))
+	add_child(itemInstance)
+	
+	print("Board set " + var2str(x) + "x" + var2str(y) + " to '" + itemInstance.name + "'")
+	board[Vector2(x, y)] = itemInstance.name
+	
+	_checkMatches()
+
+func _getItemTypeAt(x, y):
+	var key = Vector2(x, y)
+	if board.has(key):
+		var instanceName = board[key]
+		var itemNode = get_node("./" + instanceName)
+		assert itemNode != null
+		return itemNode.itemType
+	
+	return null
+	
+func _checkMatches():
+	pass
+
 func addItem(itemType):
 	var freeSpace = _findFreeSpace()
 	if freeSpace != []:
 		var x = freeSpace[0]
 		var y = freeSpace[1]
-		var itemInstance = itemClass.instance()
-		itemInstance.setType(itemType)
 		
-		itemInstance.position = Vector2(x * SLOT_SIZE + (SLOT_SIZE / 2), y * SLOT_SIZE + (SLOT_SIZE / 2))
-		
-		add_child(itemInstance)
-		
-		print("Board set " + var2str(x) + "x" + var2str(y) + " to '" + itemInstance.name + "'")
-		board[Vector2(x, y)] = itemInstance.name
-		
+		_createItemAt(itemType, x, y)
+
 		return true
 	else:
 		return false
