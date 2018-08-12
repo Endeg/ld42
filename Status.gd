@@ -19,3 +19,8 @@ func update():
 	hpLabel.text = "HP: %d/%d" % [global.happyPoints, global.maxHappyPoints]
 	xpLabel.text = "XP: %d/%d" % [global.currentXp, global.goalXp]
 	lvlLabel.text = "LVL: %d" % global.level
+
+func setPortrait(portrait):
+	$"sorceress-portrait".visible = portrait == "sorceress"
+	$"knight-portrait".visible = portrait == "knight"
+	$"ninja-portrait".visible = portrait == "ninja"

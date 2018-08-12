@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Status.gd" type="Script" id=1]
 [ext_resource path="res://assets/roboto.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/knight-portrait.png" type="Texture" id=3]
+[ext_resource path="res://assets/ninja-portrait.png" type="Texture" id=4]
+[ext_resource path="res://assets/sorceress-portrait.png" type="Texture" id=5]
 
 [node name="Status" type="Node2D" index="0"]
 
@@ -73,5 +76,23 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
+
+[node name="knight-portrait" type="Sprite" parent="." index="3"]
+
+visible = false
+position = Vector2( 157.304, 145.277 )
+texture = ExtResource( 3 )
+
+[node name="ninja-portrait" type="Sprite" parent="." index="4"]
+
+visible = false
+position = Vector2( 157.304, 145.277 )
+texture = ExtResource( 4 )
+
+[node name="sorceress-portrait" type="Sprite" parent="." index="5"]
+
+visible = false
+position = Vector2( 157.304, 145.277 )
+texture = ExtResource( 5 )
 
 
