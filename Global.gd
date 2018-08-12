@@ -7,6 +7,7 @@ const ITEM_TYPES = {
 		"Coin",
 		"BlueDiamond",
 		"HealthPotion",
+		"ManaPotion",
 	]
 }
 
@@ -16,6 +17,7 @@ const ITEM_WEALTH = {
 	"Coin" : 7,
 	"BlueDiamond": 16,
 	"HealthPotion": 4,
+	"ManaPotion": 6,
 }
 var speed = 1.0
 

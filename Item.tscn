@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/white-pearl.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/coin.png" type="Texture" id=4]
 [ext_resource path="res://assets/blue-diamond.png" type="Texture" id=5]
 [ext_resource path="res://assets/health-potion.png" type="Texture" id=6]
+[ext_resource path="res://assets/mana-potion.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -393,6 +394,10 @@ texture = ExtResource( 5 )
 [node name="HealthPotion" type="Sprite" parent="Graphic" index="4"]
 
 texture = ExtResource( 6 )
+
+[node name="ManaPotion" type="Sprite" parent="Graphic" index="5"]
+
+texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="." index="2"]
 
