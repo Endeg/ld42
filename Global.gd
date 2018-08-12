@@ -6,8 +6,12 @@ const ITEM_TYPES = {
 		"BlackPearl",
 		"Coin",
 		"BlueDiamond",
+		"Amethyst",
+		"Emerald",
 		"HealthPotion",
 		"ManaPotion",
+		"LiterallySpider",
+		"Skull",
 	]
 }
 
@@ -15,9 +19,13 @@ const ITEM_WEALTH = {
 	"WhitePearl" : 3,
 	"BlackPearl" : 5,
 	"Coin" : 7,
-	"BlueDiamond": 16,
+	"BlueDiamond": 28,
+	"Amethyst": 16,
+	"Emerald": 20,
 	"HealthPotion": 4,
 	"ManaPotion": 6,
+	"LiterallySpider": 25,
+	"Skull": 35,
 }
 var speed = 1.0
 

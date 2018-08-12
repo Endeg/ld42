@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/white-pearl.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://assets/blue-diamond.png" type="Texture" id=5]
 [ext_resource path="res://assets/health-potion.png" type="Texture" id=6]
 [ext_resource path="res://assets/mana-potion.png" type="Texture" id=7]
+[ext_resource path="res://assets/amethyst.png" type="Texture" id=8]
+[ext_resource path="res://assets/emerald.png" type="Texture" id=9]
+[ext_resource path="res://assets/literally-spider.png" type="Texture" id=10]
+[ext_resource path="res://assets/skull.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 
@@ -372,6 +376,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 [node name="WhitePearl" type="Sprite" parent="Graphic" index="0"]
 
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -379,6 +384,7 @@ __meta__ = {
 [node name="BlackPearl" type="Sprite" parent="Graphic" index="1"]
 
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -386,10 +392,12 @@ __meta__ = {
 [node name="Coin" type="Sprite" parent="Graphic" index="2"]
 
 texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="BlueDiamond" type="Sprite" parent="Graphic" index="3"]
 
 texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="HealthPotion" type="Sprite" parent="Graphic" index="4"]
 
@@ -398,6 +406,22 @@ texture = ExtResource( 6 )
 [node name="ManaPotion" type="Sprite" parent="Graphic" index="5"]
 
 texture = ExtResource( 7 )
+
+[node name="Amethyst" type="Sprite" parent="Graphic" index="6"]
+
+texture = ExtResource( 8 )
+
+[node name="Emerald" type="Sprite" parent="Graphic" index="7"]
+
+texture = ExtResource( 9 )
+
+[node name="LiterallySpider" type="Sprite" parent="Graphic" index="8"]
+
+texture = ExtResource( 10 )
+
+[node name="Skull" type="Sprite" parent="Graphic" index="9"]
+
+texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="." index="2"]
 
