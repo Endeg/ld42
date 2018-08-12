@@ -16,7 +16,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sidescroller" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 238.16, 607.458 )
+position = Vector2( 10.4952, 471.586 )
 
 [node name="Status" parent="." index="2" instance=ExtResource( 4 )]
 
@@ -132,6 +132,8 @@ size_flags_vertical = 4
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Bars" type="Node2D" parent="." index="4"]
 
 [connection signal="pressed" from="DebugPanel/AddItemButton" to="." method="_on_AddItemButton_pressed"]
 

@@ -12,7 +12,7 @@ var moving = true
 
 func _ready():
 	set_process(true)
-	items = $Items
+	items = $Hero/Items
 	assert items != null
 	
 	backpack = get_node("../Backpack")
