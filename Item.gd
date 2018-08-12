@@ -39,13 +39,13 @@ func _process(delta):
 
 func select():
 	if not selected:
-		print("Playing Selected for ", name)
+		#print("Playing Selected for ", name)
 		$AnimationPlayer.play("Selected", 0.5)
 		selected = true
 	
 func deselect():
 	if selected:
-		print("Playing Idle for ", name)
+		#print("Playing Idle for ", name)
 		$AnimationPlayer.play("Idle", 0.5)
 		selected = false
 

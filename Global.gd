@@ -15,6 +15,7 @@ const ITEM_WEALTH = {
 var speed = 1.0
 
 var happyPoints = 0
+var maxHappyPoints = 0
 var currentXp = 0
 var goalXp = 0
 var level = 0
@@ -23,6 +24,7 @@ var levelUpMessageClass = load("res://LevelUpMessage.tscn")
 
 func resetStats():
 	happyPoints = 30
+	maxHappyPoints = 30
 	currentXp = 0
 	goalXp = 1000
 	level = 0
@@ -53,6 +55,8 @@ func applyScore(itemType, scoreMultiplicator):
 		level += 1
 		goalXp = goalXp * 2.5
 		speed = speed * 1.05
+		maxHappyPoints += 2
+		happyPoints = maxHappyPoints
 		spawnLevelUpMessage()
 
 	_updateStatusLabels()
