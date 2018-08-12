@@ -16,6 +16,6 @@ func _ready():
 	assert lvlLabel != null
 	
 func update():
-	hpLabel.text = "HP: " + var2str(global.happyPoints)
-	xpLabel.text = "XP: " + var2str(global.currentXp) + "/" + var2str(global.goalXp)
-	lvlLabel.text = "LVL: " + var2str(global.level)
+	hpLabel.text = "HP: %d" % global.happyPoints
+	xpLabel.text = "XP: %d/%d" % [global.currentXp, global.goalXp]
+	lvlLabel.text = "LVL: %d" % global.level

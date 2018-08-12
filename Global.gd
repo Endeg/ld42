@@ -24,7 +24,8 @@ func resetStats():
 	currentXp = 0
 	goalXp = 1000
 	level = 0
-	
+	speed = 1.0
+
 	_updateStatusLabels()
 
 func getRandomItemType():
