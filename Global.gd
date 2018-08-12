@@ -24,6 +24,8 @@ func resetStats():
 	currentXp = 0
 	goalXp = 1000
 	level = 0
+	
+	_updateStatusLabels()
 
 func getRandomItemType():
 	var currentLevel = -1
@@ -43,13 +45,24 @@ func applyScore(itemType, scoreMultiplicator):
 		wealth = ITEM_WEALTH[itemType]
 
 	currentXp += wealth * scoreMultiplicator
+	
+	if currentXp >= goalXp:
+		level += 1
+		#TODO: Level up effect
+		goalXp = goalXp * 2.5
+		speed = speed * 1.05
+
+	_updateStatusLabels()
+
+func _updateStatusLabels():
 	var statusNode = get_node("/root/Root/Status")
 	if statusNode != null:
 		statusNode.update()
 
 func _ready():
+	print(name, " is ready")
 	randomize()
 
 func reset():
-	resetStats()
 	get_tree().reload_current_scene()
+	resetStats()

@@ -6,8 +6,7 @@ var global = null
 func _ready():
 	backpack = $Backpack
 	global = get_node("/root/Global")
-
-	$Status.update()
+	global.resetStats()
 
 func _on_AddItemButton_pressed():
 	backpack.addItem(global.getRandomItemType())
