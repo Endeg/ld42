@@ -4,14 +4,16 @@ const ITEM_TYPES = {
 	0 : [
 		"WhitePearl",
 		"BlackPearl",
-		"Coin"
+		"Coin",
+		"BlueDiamond"
 	]
 }
 
 const ITEM_WEALTH = {
 	"WhitePearl" : 3,
 	"BlackPearl" : 5,
-	"Coin" : 7
+	"Coin" : 7,
+	"BlueDiamond": 16
 }
 
 var speed = 1.0
