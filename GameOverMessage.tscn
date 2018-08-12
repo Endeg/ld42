@@ -24,7 +24,9 @@ tracks/0/keys = {
 
 [node name="GameOverMessage" type="Node2D" index="0"]
 
+z_index = 100
 script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Container" type="Node2D" parent="." index="0"]
 
