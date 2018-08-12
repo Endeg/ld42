@@ -49,6 +49,10 @@ func deselect():
 		$AnimationPlayer.play("Idle", 0.5)
 		selected = false
 
+func skip():
+	skipped = true
+	$AnimationPlayer.play("ThrowAway")
+
 func setType(typeName):
 	itemType = typeName
 	for child in $Graphic.get_children():

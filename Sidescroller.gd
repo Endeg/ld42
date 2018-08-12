@@ -23,14 +23,15 @@ func _ready():
 func _process(delta):
 	if moving:
 		for child in items.get_children():
-			child.position.x -= delta * global.speed * SPEED
+			if not child.removing and not child.skipped:
+				child.position.x -= delta * global.speed * SPEED
 			
 			if not child.removing and not child.skipped and child.position.x < 0.0:
 				if backpack.addItem(child.itemType):
 					child.startRemoving()
 				else:
 					global.fineForSkippingItem()
-					child.skipped = true
+					child.skip()
 
 func spawnGroupOfItems(count):
 	var base = get_viewport().size.x - position.x + 200 + (randi() % 100) - 200

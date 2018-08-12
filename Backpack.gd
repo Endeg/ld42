@@ -46,7 +46,12 @@ func _input(event):
 			cursor.position.y = currentCursorPos.y * SLOT_SIZE
 		_updateDebugSlot()
 	elif event is InputEventMouseButton:
-		if event.pressed and currentCursorPos.x >= 0 and currentCursorPos.y >= 0 and currentCursorPos.x < BOARD_WIDTH and currentCursorPos.y < BOARD_HEIGHT:
+		var mousePos = get_viewport().get_mouse_position()
+		mousePos = mousePos - position
+		
+		var insideBoard = mousePos.x > 0 and mousePos.y > 0 and mousePos.x < BOARD_WIDTH * SLOT_SIZE and mousePos.y < BOARD_HEIGHT * SLOT_SIZE
+		
+		if insideBoard and event.pressed and currentCursorPos.x >= 0 and currentCursorPos.y >= 0 and currentCursorPos.x < BOARD_WIDTH and currentCursorPos.y < BOARD_HEIGHT:
 			if board.has(currentCursorPos):
 				selectedSlotStart = currentCursorPos
 				_animateSelectedItemAt(selectedSlotStart)
@@ -116,8 +121,7 @@ func _getItemTypeAt(x, y):
 	return null
 	
 func _checkMatches():
-	pass
-	"""for y in range(BOARD_HEIGHT):
+	for y in range(BOARD_HEIGHT):
 		for x in range(BOARD_WIDTH):
 			var rootItemType = _getItemTypeAt(x, y)
 			if rootItemType == null:
@@ -130,7 +134,7 @@ func _checkMatches():
 				#Vertical lines
 				if _figureMatches(x, y, x, y + i - 1, rootItemType):
 					_removeFigure(x, y, x, y + i - 1, rootItemType, i)
-				#TODO: Diagonal lines?"""
+				#TODO: Diagonal lines?
 
 func _figureMatches(left, top, right, bottom, itemType):
 	var result = true
