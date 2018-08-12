@@ -147,9 +147,9 @@ func _removeFigure(left, top, right, bottom, itemType, scoreMultiplicator):
 	#print("Should remove figure: left=" + var2str(left) + ", top=" + var2str(top) + ", right=" + var2str(right) + ", bottom=" + var2str(bottom))
 	for x in range(left, right + 1):
 		for y in range(top, bottom + 1):
-			_clearItemAt(x, y)
+			_clearItemAt(x, y, itemType, scoreMultiplicator)
 
-func _clearItemAt(x, y):
+func _clearItemAt(x, y, itemType, scoreMultiplicator):
 	var key = Vector2(x, y)
 	if selectedSlotStart == key:
 		selectedSlotStart = null
@@ -163,6 +163,8 @@ func _clearItemAt(x, y):
 	itemNode.startRemoving()
 	
 	board.erase(key)
+	
+	global.applyScore(itemType, scoreMultiplicator)
 
 func addItem(itemType):
 	var freeSpace = _findFreeSpace()
