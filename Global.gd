@@ -19,6 +19,8 @@ var currentXp = 0
 var goalXp = 0
 var level = 0
 
+var levelUpMessageClass = load("res://LevelUpMessage.tscn")
+
 func resetStats():
 	happyPoints = 30
 	currentXp = 0
@@ -49,9 +51,9 @@ func applyScore(itemType, scoreMultiplicator):
 	
 	if currentXp >= goalXp:
 		level += 1
-		#TODO: Level up effect
 		goalXp = goalXp * 2.5
 		speed = speed * 1.05
+		spawnLevelUpMessage()
 
 	_updateStatusLabels()
 
@@ -67,3 +69,9 @@ func _ready():
 func reset():
 	get_tree().reload_current_scene()
 	resetStats()
+	
+func spawnLevelUpMessage():
+	var levelUpNode = levelUpMessageClass.instance()
+	var root = get_node("/root/Root")
+	assert root != null
+	root.add_child(levelUpNode)
