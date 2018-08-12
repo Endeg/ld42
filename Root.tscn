@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Root.gd" type="Script" id=1]
 [ext_resource path="res://Backpack.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sidescroller.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Status.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/fill.png" type="Texture" id=5]
 
 [node name="Root" type="Node" index="0"]
 
@@ -134,6 +135,15 @@ lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Bars" type="Node2D" parent="." index="4"]
+
+[node name="fill" type="Sprite" parent="Bars" index="0"]
+
+position = Vector2( 2.3459, 364.916 )
+scale = Vector2( 1.82493, 91.5994 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="pressed" from="DebugPanel/AddItemButton" to="." method="_on_AddItemButton_pressed"]
 

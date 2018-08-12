@@ -5,6 +5,7 @@ const SPEED = 100
 var items = null
 var global = null
 var backpack = null
+var bg = null
 
 var itemClass = load("res://Item.tscn")
 
@@ -20,6 +21,8 @@ func _ready():
 	
 	global = get_node("/root/Global")
 	
+	bg = $Background
+	
 func _process(delta):
 	if moving:
 		for child in items.get_children():
@@ -32,6 +35,8 @@ func _process(delta):
 				else:
 					global.fineForSkippingItem()
 					child.skip()
+		for child in bg.get_children():
+			child.position.x -= delta * global.speed * SPEED
 
 func spawnGroupOfItems(count):
 	var base = get_viewport().size.x - position.x + 200 + (randi() % 100) - 200
