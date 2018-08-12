@@ -131,11 +131,11 @@ func applyScore(itemType, scoreMultiplicator):
 	if ITEM_WEALTH.has(itemType):
 		wealth = ITEM_WEALTH[itemType]
 
-	currentXp += wealth * scoreMultiplicator
+	currentXp += wealth * scoreMultiplicator + ((10 + level * 10) / 10)
 	
 	if currentXp >= goalXp:
 		level += 1
-		goalXp = goalXp * 2.1
+		goalXp = goalXp * 1.8
 		speed = speed * 1.05
 		maxHappyPoints += 2
 		happyPoints = maxHappyPoints
