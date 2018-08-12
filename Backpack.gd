@@ -64,14 +64,14 @@ func _input(event):
 		_updateDebugSlot()
 
 func _animateSelectedItemAt(selectedKey):
-	print("_animateSelectedItemAt ", selectedKey)
+	#print("_animateSelectedItemAt ", selectedKey)
 	for key in board.keys():
 		var itemNode = _getItemNodeAt(key)
 		if key == selectedKey:
-			print("Select: ", key)
+			#print("Select: ", key)
 			itemNode.select()
 		else:
-			print("Deselect: ", key)
+			#print("Deselect: ", key)
 			itemNode.deselect()
 
 func _reachableSlot(src, dest):
@@ -79,7 +79,7 @@ func _reachableSlot(src, dest):
 	return true
 	
 func _moveItem(src, dest):
-	print("Moving item from ", src, " to ", dest)
+	#print("Moving item from ", src, " to ", dest)
 	var itemNode = _getItemNodeAt(src)
 	itemNode.targetPos = Vector2(dest.x * SLOT_SIZE + (SLOT_SIZE / 2), dest.y * SLOT_SIZE + (SLOT_SIZE / 2))
 	itemNode.deselect()
