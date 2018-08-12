@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Root.gd" type="Script" id=1]
 [ext_resource path="res://Backpack.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sidescroller.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Status.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fill.png" type="Texture" id=5]
+[ext_resource path="res://Title.tscn" type="PackedScene" id=6]
 
 [node name="Root" type="Node" index="0"]
 
@@ -23,8 +24,10 @@ position = Vector2( 10.4952, 471.586 )
 
 [node name="DebugPanel" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
+visible = false
 position = Vector2( 951.802, 510.973 )
-z_index = 4096
+z_index = 3000
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Header" type="Label" parent="DebugPanel" index="0"]
@@ -138,6 +141,7 @@ max_lines_visible = -1
 
 [node name="Bars" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 z_index = 2000
 _sections_unfolded = [ "Z Index" ]
 
@@ -173,6 +177,8 @@ __meta__ = {
 position = Vector2( 1281.93, 361.506 )
 scale = Vector2( 3.64626, 93.1972 )
 texture = ExtResource( 5 )
+
+[node name="Title" parent="." index="5" instance=ExtResource( 6 )]
 
 [connection signal="pressed" from="DebugPanel/AddItemButton" to="." method="_on_AddItemButton_pressed"]
 

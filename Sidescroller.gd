@@ -11,7 +11,7 @@ var fg = null
 
 var itemClass = load("res://Item.tscn")
 
-var moving = true
+var moving = false
 
 func _ready():
 	set_process(true)
