@@ -52,13 +52,14 @@ func _input(event):
 		var insideBoard = mousePos.x > 0 and mousePos.y > 0 and mousePos.x < BOARD_WIDTH * SLOT_SIZE and mousePos.y < BOARD_HEIGHT * SLOT_SIZE
 		
 		if insideBoard and event.pressed and currentCursorPos.x >= 0 and currentCursorPos.y >= 0 and currentCursorPos.x < BOARD_WIDTH and currentCursorPos.y < BOARD_HEIGHT:
-			if board.has(currentCursorPos):
+			if selectedSlotStart == null and board.has(currentCursorPos):
 				selectedSlotStart = currentCursorPos
 				_animateSelectedItemAt(selectedSlotStart)
-				#TODO: Animate selected item
+			elif selectedSlotStart != null and board.has(currentCursorPos):
+				_swapItemsAt(selectedSlotStart, currentCursorPos)
+				selectedSlotStart = null
 			elif selectedSlotStart != null and _reachableSlot(selectedSlotStart, currentCursorPos):
 				_moveItem(selectedSlotStart, currentCursorPos)
-				#TODO: Move animation
 				selectedSlotStart = null
 			
 		_updateDebugSlot()
@@ -85,6 +86,22 @@ func _moveItem(src, dest):
 	itemNode.deselect()
 	board[dest] = board[src]
 	board.erase(src)
+	_checkMatches()
+	
+func _swapItemsAt(a, b):
+	var itemANode = _getItemNodeAt(a)
+	var itemBNode = _getItemNodeAt(b)
+	
+	itemANode.targetPos = Vector2(b.x * SLOT_SIZE + (SLOT_SIZE / 2), b.y * SLOT_SIZE + (SLOT_SIZE / 2))
+	itemANode.deselect()
+	
+	itemBNode.targetPos = Vector2(a.x * SLOT_SIZE + (SLOT_SIZE / 2), a.y * SLOT_SIZE + (SLOT_SIZE / 2))
+	itemBNode.deselect()
+	
+	var tmp = board[a]
+	board[a] = board[b]
+	board[b] = tmp
+	
 	_checkMatches()
 
 func _findFreeSpace():

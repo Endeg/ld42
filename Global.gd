@@ -2,6 +2,64 @@ extends Node
 
 const ITEM_TYPES = {
 	0 : [
+		"Coin",
+		"HealthPotion",
+		"ManaPotion",
+	],
+	
+	1 : [
+		"Coin",
+		"HealthPotion",
+		"ManaPotion",
+	],
+	
+	2 : [
+		"Coin",
+		"HealthPotion",
+		"ManaPotion",
+	],
+	
+	3 : [
+		"Coin",
+		"HealthPotion",
+		"ManaPotion",
+		"WhitePearl",
+		"BlackPearl",
+		"Amethyst",
+	],
+	
+	4 : [
+		"Coin",
+		"HealthPotion",
+		"ManaPotion",
+		"WhitePearl",
+		"BlackPearl",
+		"Amethyst",
+	],
+	
+	5 : [
+		"Coin",
+		"HealthPotion",
+		"ManaPotion",
+		"WhitePearl",
+		"BlackPearl",
+		"Amethyst",
+		"BlueDiamond",
+		"Emerald",
+	],
+	
+	6 : [
+		"Coin",
+		"HealthPotion",
+		"ManaPotion",
+		"WhitePearl",
+		"BlackPearl",
+		"Amethyst",
+		"BlueDiamond",
+		"Emerald",
+	],
+	
+	7 : [
 		"WhitePearl",
 		"BlackPearl",
 		"Coin",
@@ -16,17 +74,25 @@ const ITEM_TYPES = {
 }
 
 const ITEM_WEALTH = {
-	"WhitePearl" : 3,
-	"BlackPearl" : 5,
+	#Level 0-2
 	"Coin" : 7,
-	"BlueDiamond": 28,
-	"Amethyst": 16,
-	"Emerald": 20,
 	"HealthPotion": 4,
 	"ManaPotion": 6,
+	
+	#Level 3-4
+	"WhitePearl" : 8,
+	"BlackPearl" : 12,
+	"Amethyst": 14,
+	
+	#Level 5-6
+	"BlueDiamond": 20,
+	"Emerald": 16,	
+	
+	#Level 7-n
 	"LiterallySpider": 25,
 	"Skull": 35,
 }
+
 var speed = 1.0
 
 var happyPoints = 0
@@ -69,7 +135,7 @@ func applyScore(itemType, scoreMultiplicator):
 	
 	if currentXp >= goalXp:
 		level += 1
-		goalXp = goalXp * 2.5
+		goalXp = goalXp * 2.1
 		speed = speed * 1.05
 		maxHappyPoints += 2
 		happyPoints = maxHappyPoints
