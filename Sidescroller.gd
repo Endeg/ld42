@@ -29,7 +29,7 @@ func _process(delta):
 				if backpack.addItem(child.itemType):
 					child.startRemoving()
 				else:
-					#TODO: Skip penalty here
+					global.fineForSkippingItem()
 					child.skipped = true
 
 func spawnGroupOfItems(count):

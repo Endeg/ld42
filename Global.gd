@@ -21,6 +21,7 @@ var goalXp = 0
 var level = 0
 
 var levelUpMessageClass = load("res://LevelUpMessage.tscn")
+var gameOverMessageClass = load("res://GameOverMessage.tscn")
 
 func resetStats():
 	happyPoints = 30
@@ -61,6 +62,13 @@ func applyScore(itemType, scoreMultiplicator):
 
 	_updateStatusLabels()
 
+func fineForSkippingItem():
+	#TODO: Shake avatar
+	happyPoints -= 1
+	_updateStatusLabels()
+	if happyPoints <= 0:
+		spawnGameOverMessage()
+
 func _updateStatusLabels():
 	var statusNode = get_node("/root/Root/Status")
 	if statusNode != null:
@@ -79,3 +87,10 @@ func spawnLevelUpMessage():
 	var root = get_node("/root/Root")
 	assert root != null
 	root.add_child(levelUpNode)
+	
+func spawnGameOverMessage():
+	var gameOverNode = gameOverMessageClass.instance()
+	var root = get_node("/root/Root")
+	assert root != null
+	root.stop()
+	root.add_child(gameOverNode)

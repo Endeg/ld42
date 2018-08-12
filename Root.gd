@@ -1,6 +1,7 @@
 extends Node
 
 var backpack = null
+var sidescroller = null
 var global = null
 
 func _ready():
@@ -13,3 +14,7 @@ func _on_AddItemButton_pressed():
 
 func _on_ResetButton_pressed():
 	global.reset()
+
+func stop():
+	backpack.paused = true
+	sidescroller.walking = false
