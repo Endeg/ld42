@@ -7,6 +7,7 @@ var items = null
 var global = null
 var backpack = null
 var bg = null
+var fg = null
 
 var itemClass = load("res://Item.tscn")
 
@@ -23,6 +24,7 @@ func _ready():
 	global = get_node("/root/Global")
 	
 	bg = $Background
+	fg = $Foreground
 	
 func _process(delta):
 	if moving:
@@ -39,6 +41,11 @@ func _process(delta):
 
 		for child in bg.get_children():
 			child.position.x -= delta * global.speed * SPEED
+			if child.position.x < -BG_WIDTH:
+				child.position.x += BG_WIDTH * 2
+				
+		for child in fg.get_children():
+			child.position.x -= delta * global.speed * SPEED * 1.8
 			if child.position.x < -BG_WIDTH:
 				child.position.x += BG_WIDTH * 2
 
