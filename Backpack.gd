@@ -19,12 +19,17 @@ var currentCursorPos = Vector2(0, 0)
 
 var selectedSlotStart = null
 
+var status = null
+
 func _ready():
 	global = get_node("/root/Global")
 	assert global != null
 	
 	cursor = $Cursor
 	assert cursor != null
+	
+	status = get_node("../Status")
+	assert status != null
 
 func _input(event):
 	if event is InputEventMouseMotion:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Root.gd" type="Script" id=1]
 [ext_resource path="res://Backpack.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sidescroller.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Status.gd" type="Script" id=4]
 
 [node name="Root" type="Node" index="0"]
 
@@ -17,9 +18,78 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( 238.16, 607.458 )
 
-[node name="DebugPanel" type="Node2D" parent="." index="2"]
+[node name="Status" type="Node2D" parent="." index="2"]
 
-position = Vector2( 976.802, 67.9733 )
+position = Vector2( 919.613, 12.2434 )
+script = ExtResource( 4 )
+
+[node name="HPLabel" type="Label" parent="Status" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "HP:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Grow Direction", "Rect" ]
+
+[node name="XPLabel" type="Label" parent="Status" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -3.0
+margin_top = 430.0
+margin_right = 97.0
+margin_bottom = 444.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "XP:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="LVLLabel" type="Label" parent="Status" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 242.0
+margin_top = 433.0
+margin_right = 342.0
+margin_bottom = 447.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "LVL:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="DebugPanel" type="Node2D" parent="." index="3"]
+
+position = Vector2( 951.802, 510.973 )
 
 [node name="Header" type="Label" parent="DebugPanel" index="0"]
 
