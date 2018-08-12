@@ -5,7 +5,8 @@ const ITEM_TYPES = {
 		"WhitePearl",
 		"BlackPearl",
 		"Coin",
-		"BlueDiamond"
+		"BlueDiamond",
+		"HealthPotion",
 	]
 }
 
@@ -13,9 +14,9 @@ const ITEM_WEALTH = {
 	"WhitePearl" : 3,
 	"BlackPearl" : 5,
 	"Coin" : 7,
-	"BlueDiamond": 16
+	"BlueDiamond": 16,
+	"HealthPotion": 4,
 }
-
 var speed = 1.0
 
 var happyPoints = 0
