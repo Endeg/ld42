@@ -1,6 +1,7 @@
 extends Node2D
 
 const SPEED = 100
+const BG_WIDTH = 3584
 
 var items = null
 var global = null
@@ -35,8 +36,11 @@ func _process(delta):
 				else:
 					global.fineForSkippingItem()
 					child.skip()
+
 		for child in bg.get_children():
 			child.position.x -= delta * global.speed * SPEED
+			if child.position.x < -BG_WIDTH:
+				child.position.x += BG_WIDTH * 2
 
 func spawnGroupOfItems(count):
 	var base = get_viewport().size.x - position.x + 200 + (randi() % 100) - 200

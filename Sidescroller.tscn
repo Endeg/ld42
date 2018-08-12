@@ -35,7 +35,17 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 z_index = -5
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="ForestBg" parent="Background" index="0" instance=ExtResource( 3 )]
+[node name="ForestBg1" parent="Background" index="0" instance=ExtResource( 3 )]
+
+[node name="ForestBg2" parent="Background" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 3584, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ForestBg3" parent="Background" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 7168, 0 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
