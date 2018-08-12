@@ -141,7 +141,7 @@ max_lines_visible = -1
 z_index = 2000
 _sections_unfolded = [ "Z Index" ]
 
-[node name="fill" type="Sprite" parent="Bars" index="0"]
+[node name="fill1" type="Sprite" parent="Bars" index="0"]
 
 position = Vector2( 2.3459, 364.916 )
 scale = Vector2( 1.82493, 91.5994 )
@@ -149,6 +149,30 @@ texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="fill2" type="Sprite" parent="Bars" index="1"]
+
+position = Vector2( 635.54, -4.16371 )
+scale = Vector2( 164.591, 3.5218 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fill3" type="Sprite" parent="Bars" index="2"]
+
+position = Vector2( 635.019, 720.208 )
+scale = Vector2( 164.591, 3.5218 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fill4" type="Sprite" parent="Bars" index="3"]
+
+position = Vector2( 1281.93, 361.506 )
+scale = Vector2( 3.64626, 93.1972 )
+texture = ExtResource( 5 )
 
 [connection signal="pressed" from="DebugPanel/AddItemButton" to="." method="_on_AddItemButton_pressed"]
 

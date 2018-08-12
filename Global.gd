@@ -3,13 +3,15 @@ extends Node
 const ITEM_TYPES = {
 	0 : [
 		"WhitePearl",
-		"BlackPearl"
+		"BlackPearl",
+		"Coin"
 	]
 }
 
 const ITEM_WEALTH = {
 	"WhitePearl" : 3,
 	"BlackPearl" : 5,
+	"Coin" : 7
 }
 
 var speed = 1.0

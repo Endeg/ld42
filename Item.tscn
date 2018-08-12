@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/white-pearl.png" type="Texture" id=2]
 [ext_resource path="res://assets/black-pearl.png" type="Texture" id=3]
+[ext_resource path="res://assets/coin.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -378,6 +379,10 @@ texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Coin" type="Sprite" parent="Graphic" index="2"]
+
+texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="." index="2"]
 
