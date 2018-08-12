@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://LevelUpMessage.gd" type="Script" id=1]
-[ext_resource path="res://assets/LevelApSparkles.tres" type="Material" id=2]
-[ext_resource path="res://assets/magical-sparkly-thing.png" type="Texture" id=3]
-[ext_resource path="res://assets/roboto-big.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/SparklyThingMaterial.tres" type="Material" id=2]
+[ext_resource path="res://assets/LevelApSparkles.tres" type="Material" id=3]
+[ext_resource path="res://assets/magical-sparkly-thing.png" type="Texture" id=4]
+[ext_resource path="res://assets/roboto-big.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -45,13 +46,14 @@ tracks/1/keys = {
 
 z_index = 1000
 script = ExtResource( 1 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 [node name="Particles2D" type="Particles2D" parent="." index="0"]
 
+material = ExtResource( 2 )
 position = Vector2( 653.524, 372.165 )
 emitting = false
-amount = 32
+amount = 24
 lifetime = 5.0
 one_shot = true
 preprocess = 0.0
@@ -63,12 +65,12 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = ExtResource( 2 )
-texture = ExtResource( 3 )
+process_material = ExtResource( 3 )
+texture = ExtResource( 4 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform" ]
 
 [node name="Label" type="Label" parent="." index="1"]
 
@@ -86,7 +88,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Level up!"
 percent_visible = 1.0
 lines_skipped = 0
