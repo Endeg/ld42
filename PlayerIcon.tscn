@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/knight-icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/knight-icon-anim.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/ninja-icon-anim.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://assets/sorceress-icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/sorceress-icon-anim.tres" type="SpriteFrames" id=3]
 
 [sub_resource type="Animation" id=2]
 
@@ -48,9 +48,10 @@ tracks/0/keys = {
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="knight-icon" type="Sprite" parent="Graphic" index="0"]
+[node name="knight-icon" type="AnimatedSprite" parent="Graphic" index="0"]
 
-texture = ExtResource( 1 )
+frames = ExtResource( 1 )
+animation = "default"
 offset = Vector2( 0, -32 )
 
 [node name="ninja-icon" type="AnimatedSprite" parent="Graphic" index="1"]
@@ -59,9 +60,10 @@ frames = ExtResource( 2 )
 animation = "default"
 offset = Vector2( 0, -32 )
 
-[node name="sorceress-icon" type="Sprite" parent="Graphic" index="2"]
+[node name="sorceress-icon" type="AnimatedSprite" parent="Graphic" index="2"]
 
-texture = ExtResource( 3 )
+frames = ExtResource( 3 )
+animation = "default"
 offset = Vector2( 0, -32 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
