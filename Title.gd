@@ -19,6 +19,7 @@ func startWithSpeed(speed):
 	global.speed = speed
 	$AnimationPlayer.play("Dissolve")
 	sidescroller.moving = true
+	sidescroller.get_node("Timer").start()
 	$StartSound.play()
 
 func scheduleForRemoval():

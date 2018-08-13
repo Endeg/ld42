@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Status.gd" type="Script" id=1]
 [ext_resource path="res://assets/roboto.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/Knight-portrait-anim.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://assets/ninja-portrait-anim.tres" type="SpriteFrames" id=4]
 [ext_resource path="res://assets/sorceress-portrait-anim.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://assets/ts-2018-logo.png" type="Texture" id=6]
 
 [node name="Status" type="Node2D" index="0"]
 
@@ -38,9 +39,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 403.0
-margin_right = 100.0
-margin_bottom = 433.0
+margin_left = 2.0
+margin_top = 175.0
+margin_right = 102.0
+margin_bottom = 205.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -60,10 +62,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 239.0
-margin_top = 403.0
-margin_right = 339.0
-margin_bottom = 433.0
+margin_left = 241.0
+margin_top = 175.0
+margin_right = 341.0
+margin_bottom = 205.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -79,11 +81,10 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Portrait" type="Node2D" parent="." index="3"]
 
-position = Vector2( 239, 403 )
+position = Vector2( 230.855, 347.614 )
 
 [node name="Knight" type="AnimatedSprite" parent="Portrait" index="0"]
 
-visible = false
 position = Vector2( -81.696, -257.723 )
 frames = ExtResource( 3 )
 animation = "default"
@@ -101,5 +102,10 @@ visible = false
 position = Vector2( -81.696, -257.723 )
 frames = ExtResource( 5 )
 animation = "default"
+
+[node name="ts-2018-logo" type="Sprite" parent="." index="4"]
+
+position = Vector2( 151.281, 344.213 )
+texture = ExtResource( 6 )
 
 
