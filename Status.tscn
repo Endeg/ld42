@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Status.gd" type="Script" id=1]
 [ext_resource path="res://assets/roboto.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/knight-portrait.png" type="Texture" id=3]
-[ext_resource path="res://assets/ninja-portrait.png" type="Texture" id=4]
-[ext_resource path="res://assets/sorceress-portrait.png" type="Texture" id=5]
+[ext_resource path="res://assets/Knight-portrait-anim.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/ninja-portrait-anim.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://assets/sorceress-portrait-anim.tres" type="SpriteFrames" id=5]
 
 [node name="Status" type="Node2D" index="0"]
 
@@ -77,22 +77,29 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="knight-portrait" type="Sprite" parent="." index="3"]
+[node name="Portrait" type="Node2D" parent="." index="3"]
+
+position = Vector2( 239, 403 )
+
+[node name="Knight" type="AnimatedSprite" parent="Portrait" index="0"]
 
 visible = false
-position = Vector2( 157.304, 145.277 )
-texture = ExtResource( 3 )
+position = Vector2( -81.696, -257.723 )
+frames = ExtResource( 3 )
+animation = "default"
 
-[node name="ninja-portrait" type="Sprite" parent="." index="4"]
-
-visible = false
-position = Vector2( 157.304, 145.277 )
-texture = ExtResource( 4 )
-
-[node name="sorceress-portrait" type="Sprite" parent="." index="5"]
+[node name="Ninja" type="AnimatedSprite" parent="Portrait" index="1"]
 
 visible = false
-position = Vector2( 157.304, 145.277 )
-texture = ExtResource( 5 )
+position = Vector2( -81.696, -257.723 )
+frames = ExtResource( 4 )
+animation = "default"
+
+[node name="Sorceress" type="AnimatedSprite" parent="Portrait" index="2"]
+
+visible = false
+position = Vector2( -81.696, -257.723 )
+frames = ExtResource( 5 )
+animation = "default"
 
 

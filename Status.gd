@@ -21,6 +21,6 @@ func update():
 	lvlLabel.text = "LVL: %d" % global.level
 
 func setPortrait(portrait):
-	$"sorceress-portrait".visible = portrait == "sorceress"
-	$"knight-portrait".visible = portrait == "knight"
-	$"ninja-portrait".visible = portrait == "ninja"
+	$Portrait/Sorceress.visible = portrait == "sorceress"
+	$Portrait/Knight.visible = portrait == "knight"
+	$Portrait/Ninja.visible = portrait == "ninja"

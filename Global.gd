@@ -112,7 +112,7 @@ func resetStats():
 	level = 0
 	speed = 1.0
 
-	_updateStatusLabels()
+	_updateStatusLabels(null)
 
 func getRandomItemType():
 	var currentLevel = -1
@@ -141,19 +141,23 @@ func applyScore(itemType, scoreMultiplicator):
 		happyPoints = maxHappyPoints
 		spawnLevelUpMessage()
 
-	_updateStatusLabels()
+	_updateStatusLabels("Happy")
 
 func fineForSkippingItem():
 	#TODO: Shake avatar
 	happyPoints -= 1
-	_updateStatusLabels()
+	_updateStatusLabels("Hurt")
 	if happyPoints <= 0:
 		spawnGameOverMessage()
 
-func _updateStatusLabels():
+func _updateStatusLabels(reason):
 	var statusNode = get_node("/root/Root/Status")
 	if statusNode != null:
 		statusNode.update()
+		if reason != null:
+			for child in statusNode.get_node("Portrait").get_children():
+				child.play("default")
+				child.play(reason)
 
 func _ready():
 	print(name, " is ready")

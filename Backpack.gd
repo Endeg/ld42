@@ -138,8 +138,7 @@ func _getItemTypeAt(x, y):
 	return null
 	
 func _checkMatches():
-	pass
-	"""for y in range(BOARD_HEIGHT):
+	for y in range(BOARD_HEIGHT):
 		for x in range(BOARD_WIDTH):
 			var rootItemType = _getItemTypeAt(x, y)
 			if rootItemType == null:
@@ -152,7 +151,7 @@ func _checkMatches():
 				#Vertical lines
 				if _figureMatches(x, y, x, y + i - 1, rootItemType):
 					_removeFigure(x, y, x, y + i - 1, rootItemType, i)
-				#TODO: Diagonal lines?"""
+				#TODO: Diagonal lines?
 
 func _figureMatches(left, top, right, bottom, itemType):
 	var result = true
