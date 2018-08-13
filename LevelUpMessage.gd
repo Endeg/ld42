@@ -6,5 +6,8 @@ func _ready():
 func remove():
 	queue_free()
 
+func playSound():
+	$LevelUpSound.play()
+
 func turnSparkly():
 	$Particles2D.emitting = true

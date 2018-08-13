@@ -167,6 +167,7 @@ func _figureMatches(left, top, right, bottom, itemType):
 func _removeFigure(left, top, right, bottom, itemType, scoreMultiplicator):
 	#TODO: apply score according to item and multiplicator
 	#print("Should remove figure: left=" + var2str(left) + ", top=" + var2str(top) + ", right=" + var2str(right) + ", bottom=" + var2str(bottom))
+	$MatchSound.play()
 	for x in range(left, right + 1):
 		for y in range(top, bottom + 1):
 			_clearItemAt(x, y, itemType, scoreMultiplicator)
