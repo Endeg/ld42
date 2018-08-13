@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/fill.png" type="Texture" id=5]
 [ext_resource path="res://Title.tscn" type="PackedScene" id=6]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

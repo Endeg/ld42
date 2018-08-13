@@ -73,3 +73,17 @@ func _on_Timer_timeout():
 		spawnGroupOfItems(7)
 	elif dice > 10:
 		spawnGroupOfItems(4)
+
+var portrait = null
+
+func setPlayerIcon(portrait):
+	self.portrait = portrait
+	$"Hero/Graphic/sorceress-icon".visible = portrait == "sorceress"
+	$"Hero/Graphic/knight-icon".visible = portrait == "knight"
+	$"Hero/Graphic/ninja-icon".visible = portrait == "ninja"
+	
+func heroFall():
+	var heroIcon = get_node("Hero/Graphic/" + portrait + "-icon")
+	assert heroIcon != null
+	$Hero/AnimationPlayer.play("Idle", 0.5)
+	heroIcon.play("Fallen")

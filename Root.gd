@@ -19,3 +19,4 @@ func _on_ResetButton_pressed():
 func stop():
 	backpack.set_process_input(false)
 	sidescroller.moving = false
+	sidescroller.heroFall()

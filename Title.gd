@@ -26,11 +26,14 @@ func scheduleForRemoval():
 func _on_Knight_pressed():
 	startWithSpeed(1.0)
 	status.setPortrait("knight")
+	sidescroller.setPlayerIcon("knight")
 
 func _on_Sorceress_pressed():
 	startWithSpeed(1.8)
 	status.setPortrait("sorceress")
+	sidescroller.setPlayerIcon("sorceress")
 
 func _on_Ninja_pressed():
 	startWithSpeed(3.0)
 	status.setPortrait("ninja")
+	sidescroller.setPlayerIcon("ninja")
