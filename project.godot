@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="ld42"
+config/name="Ludum Dare #42 - Treasure Hoarders 2018"
 run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
 
