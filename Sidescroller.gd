@@ -66,13 +66,12 @@ func spawnGroupOfItems(count):
 
 func _on_Timer_timeout():
 	var dice = randi() % 50
-	#TODO: Change number of spawning items depending on level?
 	if dice > 44:
-		spawnGroupOfItems(10)
+		spawnGroupOfItems(int(10 * ((10 + global.level * 10) / 10)))
 	elif dice > 25:
-		spawnGroupOfItems(7)
+		spawnGroupOfItems(int(7 * ((10 + global.level * 10) / 10)))
 	elif dice > 10:
-		spawnGroupOfItems(4)
+		spawnGroupOfItems(int(4 * ((10 + global.level * 10) / 10)))
 
 var portrait = null
 
