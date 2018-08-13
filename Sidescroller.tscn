@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sidescroller.gd" type="Script" id=1]
 [ext_resource path="res://PlayerIcon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ForestBg.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ForestFg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Pickup.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/Hurt.wav" type="AudioStream" id=6]
 
 [node name="Sidescroller" type="Node2D" index="0"]
 
@@ -59,6 +61,24 @@ position = Vector2( 3584, 0 )
 
 position = Vector2( 7168, 0 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="PickupItemSound" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

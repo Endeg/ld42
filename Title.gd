@@ -19,6 +19,7 @@ func startWithSpeed(speed):
 	global.speed = speed
 	$AnimationPlayer.play("Dissolve")
 	sidescroller.moving = true
+	$StartSound.play()
 
 func scheduleForRemoval():
 	queue_free()
