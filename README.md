@@ -1,10 +1,17 @@
 # ld42 - Treasure Hoarders 2018
 
-New game should be developed here in 4-ish hours.
+Game located here: https://endeg.itch.io/ld42-treasure-hoarders-2018
 
-# Things to do
+# Things to improve post-jam
+* Refactor: split huge scripts into classes.
+* Pause
+* Save score
+* Cooldown time on slots that just getting empty
+* Better difficulty curve: more items spawn as level progress - player shouldn't decide to stop game and what till all HP=0
+* Fix graphics glitch in HTML5 
+* Change GUI Layout to make portrait reactions/score visible.
+
+# Things to consider
 * Diagonal lines (later probably)
 * Items can be blocked by other items (probably not)
-* Reset game (some additions needed probably)
-* Select avatar before starting game: slow/medium/fast
-* Graphics (big and tiny avatar, land, gui)
+* Use lines/diamonds rules when moving item to empty space, and use match3 rules when item swapped
