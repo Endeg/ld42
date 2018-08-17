@@ -25,6 +25,7 @@ position = Vector2( 10.4952, 471.586 )
 
 [node name="DebugPanel" type="Node2D" parent="." index="3"]
 
+visible = false
 position = Vector2( 951.802, 510.973 )
 z_index = 4010
 script = ExtResource( 5 )
