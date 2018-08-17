@@ -36,6 +36,9 @@ func _ready():
 	debugPanel = get_node("../DebugPanel")
 	assert debugPanel != null
 
+func _exit_tree():
+	board.clear()
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		var mousePos = get_viewport().get_mouse_position()
@@ -71,9 +74,8 @@ func _input(event):
 		debugPanel.setEntry("Selected slot", selectedSlot)
 
 func _animateSelectedItemAt(selectedKey):
-	#print("_animateSelectedItemAt ", selectedKey)
 	for key in board.keys():
-		var itemNode = _getItemNodeAt(key)
+		var itemNode = board[key]
 		if key == selectedKey:
 			#print("Select: ", key)
 			itemNode.select()
@@ -87,7 +89,7 @@ func _reachableSlot(src, dest):
 	
 func _moveItem(src, dest):
 	#print("Moving item from ", src, " to ", dest)
-	var itemNode = _getItemNodeAt(src)
+	var itemNode = board[src]
 	itemNode.targetPos = Vector2(dest.x * SLOT_SIZE + (SLOT_SIZE / 2), dest.y * SLOT_SIZE + (SLOT_SIZE / 2))
 	itemNode.deselect()
 	board[dest] = board[src]
@@ -95,8 +97,8 @@ func _moveItem(src, dest):
 	_checkMatches()
 	
 func _swapItemsAt(a, b):
-	var itemANode = _getItemNodeAt(a)
-	var itemBNode = _getItemNodeAt(b)
+	var itemANode = board[a]
+	var itemBNode = board[b]
 	
 	itemANode.targetPos = Vector2(b.x * SLOT_SIZE + (SLOT_SIZE / 2), b.y * SLOT_SIZE + (SLOT_SIZE / 2))
 	itemANode.deselect()
@@ -123,22 +125,15 @@ func _createItemAt(itemType, x, y):
 	itemInstance.position = Vector2(x * SLOT_SIZE + (SLOT_SIZE / 2), y * SLOT_SIZE + (SLOT_SIZE / 2))
 	add_child(itemInstance)
 	itemInstance.startAppearing()
-	
-	#print("Board set " + var2str(x) + "x" + var2str(y) + " to '" + itemInstance.name + "'")
-	board[Vector2(x, y)] = itemInstance.name
+
+	board[Vector2(x, y)] = itemInstance
 	
 	_checkMatches()
-
-func _getItemNodeAt(key):
-	var instanceName = board[key]
-	var itemNode = get_node("./" + instanceName)
-	assert itemNode != null
-	return itemNode
 
 func _getItemTypeAt(x, y):
 	var key = Vector2(x, y)
 	if board.has(key):
-		var itemNode = _getItemNodeAt(key)
+		var itemNode = board[key]
 		return itemNode.itemType
 	
 	return null
@@ -172,7 +167,6 @@ func _figureMatches(left, top, right, bottom, itemType):
 
 func _removeFigure(left, top, right, bottom, itemType, scoreMultiplicator):
 	#TODO: apply score according to item and multiplicator
-	#print("Should remove figure: left=" + var2str(left) + ", top=" + var2str(top) + ", right=" + var2str(right) + ", bottom=" + var2str(bottom))
 	$MatchSound.play()
 	for x in range(left, right + 1):
 		for y in range(top, bottom + 1):
@@ -185,10 +179,8 @@ func _clearItemAt(x, y, itemType, scoreMultiplicator):
 		debugPanel.setEntry("Selected slot", selectedSlot)
 	
 	assert board.has(key)
-	
-	var instanceName = board[key]
-	assert instanceName != null
-	var itemNode = get_node("./" + instanceName)
+
+	var itemNode = board[key]
 	itemNode.startRemoving()
 	
 	board.erase(key)

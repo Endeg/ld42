@@ -2,7 +2,7 @@
 
 [ext_resource path="res://DebugPanel.gd" type="Script" id=1]
 
-[node name="DebugPanel" type="Node2D"]
+[node name="DebugPanel" type="Node2D" index="0"]
 
 visible = false
 position = Vector2( 951.802, 510.973 )
@@ -98,5 +98,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 columns = 2
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
+
+[connection signal="pressed" from="AddItemButton" to="." method="_on_AddItemButton_pressed"]
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_ResetButton_pressed"]
 
 

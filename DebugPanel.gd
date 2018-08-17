@@ -1,11 +1,15 @@
 extends Node2D
 
 var info
+var global
+var backpack
 
 var valueNodes = {}
 
 func _ready():
 	info = $Info
+	backpack = $"../Backpack"
+	global = get_node("/root/Global")
 	
 func _exit_tree():
 	valueNodes.clear()
@@ -28,3 +32,10 @@ func setEntry(entryName, value):
 		info.add_child(valueLabel)
 
 	valueLabel.text = var2str(value)
+
+
+func _on_ResetButton_pressed():
+	global.reset()
+
+func _on_AddItemButton_pressed():
+	backpack.addItem(global.getRandomItemType())
