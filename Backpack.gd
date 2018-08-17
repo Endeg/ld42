@@ -17,7 +17,7 @@ var cursor = null
 
 var currentCursorPos = Vector2(0, 0)
 
-var selectedSlotStart = null
+var selectedSlot = null
 
 var status = null
 
@@ -58,17 +58,17 @@ func _input(event):
 		var insideBoard = mousePos.x > 0 and mousePos.y > 0 and mousePos.x < BOARD_WIDTH * SLOT_SIZE and mousePos.y < BOARD_HEIGHT * SLOT_SIZE
 		
 		if insideBoard and event.pressed and currentCursorPos.x >= 0 and currentCursorPos.y >= 0 and currentCursorPos.x < BOARD_WIDTH and currentCursorPos.y < BOARD_HEIGHT:
-			if selectedSlotStart == null and board.has(currentCursorPos):
-				selectedSlotStart = currentCursorPos
-				_animateSelectedItemAt(selectedSlotStart)
-			elif selectedSlotStart != null and board.has(currentCursorPos):
-				_swapItemsAt(selectedSlotStart, currentCursorPos)
-				selectedSlotStart = null
-			elif selectedSlotStart != null and _reachableSlot(selectedSlotStart, currentCursorPos):
-				_moveItem(selectedSlotStart, currentCursorPos)
-				selectedSlotStart = null
+			if selectedSlot == null and board.has(currentCursorPos):
+				selectedSlot = currentCursorPos
+				_animateSelectedItemAt(selectedSlot)
+			elif selectedSlot != null and board.has(currentCursorPos):
+				_swapItemsAt(selectedSlot, currentCursorPos)
+				selectedSlot = null
+			elif selectedSlot != null and _reachableSlot(selectedSlot, currentCursorPos):
+				_moveItem(selectedSlot, currentCursorPos)
+				selectedSlot = null
 			
-		debugPanel.setEntry("Selected slot", selectedSlotStart)
+		debugPanel.setEntry("Selected slot", selectedSlot)
 
 func _animateSelectedItemAt(selectedKey):
 	#print("_animateSelectedItemAt ", selectedKey)
@@ -180,9 +180,9 @@ func _removeFigure(left, top, right, bottom, itemType, scoreMultiplicator):
 
 func _clearItemAt(x, y, itemType, scoreMultiplicator):
 	var key = Vector2(x, y)
-	if selectedSlotStart == key:
-		selectedSlotStart = null
-		debugPanel.setEntry("Selected slot", selectedSlotStart)
+	if selectedSlot == key:
+		selectedSlot = null
+		debugPanel.setEntry("Selected slot", selectedSlot)
 	
 	assert board.has(key)
 	
