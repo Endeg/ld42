@@ -21,6 +21,8 @@ var selectedSlotStart = null
 
 var status = null
 
+var debugPanel = null
+
 func _ready():
 	global = get_node("/root/Global")
 	assert global != null
@@ -30,6 +32,9 @@ func _ready():
 	
 	status = get_node("../Status")
 	assert status != null
+	
+	debugPanel = get_node("../DebugPanel")
+	assert debugPanel != null
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -44,7 +49,8 @@ func _input(event):
 			currentCursorPos.y = int(mousePos.y / SLOT_SIZE)
 			cursor.position.x = currentCursorPos.x * SLOT_SIZE
 			cursor.position.y = currentCursorPos.y * SLOT_SIZE
-		_updateDebugSlot()
+			
+		debugPanel.setEntry("Cursor pos", currentCursorPos)
 	elif event is InputEventMouseButton:
 		var mousePos = get_viewport().get_mouse_position()
 		mousePos = mousePos - position
@@ -62,7 +68,7 @@ func _input(event):
 				_moveItem(selectedSlotStart, currentCursorPos)
 				selectedSlotStart = null
 			
-		_updateDebugSlot()
+		debugPanel.setEntry("Selected slot", selectedSlotStart)
 
 func _animateSelectedItemAt(selectedKey):
 	#print("_animateSelectedItemAt ", selectedKey)
