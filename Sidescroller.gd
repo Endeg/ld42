@@ -33,7 +33,7 @@ func _process(delta):
 				child.position.x -= delta * global.speed * SPEED
 			
 			if not child.removing and not child.skipped and child.position.x < 0.0:
-				if backpack.addItem(child.itemType):
+				if backpack.slots.addItem(child.itemType):
 					child.startRemoving()
 					$PickupItemSound.play()
 				else:

@@ -38,4 +38,4 @@ func _on_ResetButton_pressed():
 	global.reset()
 
 func _on_AddItemButton_pressed():
-	backpack.addItem(global.getRandomItemType())
+	backpack.slots.addItem(global.getRandomItemType())

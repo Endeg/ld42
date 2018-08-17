@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Backpack.gd" type="Script" id=1]
 [ext_resource path="res://assets/inventory-slot.png" type="Texture" id=2]
-[ext_resource path="res://assets/cursor.png" type="Texture" id=3]
+[ext_resource path="res://Slots.gd" type="Script" id=3]
 [ext_resource path="res://assets/Match.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/cursor.png" type="Texture" id=5]
 
 [node name="Backpack" type="Node2D" index="0"]
 
@@ -17,16 +18,10 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 896, 448 )
 region_filter_clip = true
+script = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Z Index" ]
 
-[node name="Cursor" type="Sprite" parent="." index="1"]
-
-z_index = 1
-texture = ExtResource( 3 )
-centered = false
-_sections_unfolded = [ "Visibility" ]
-
-[node name="MatchSound" type="AudioStreamPlayer" parent="." index="2"]
+[node name="MatchSound" type="AudioStreamPlayer" parent="Slots" index="0"]
 
 stream = ExtResource( 4 )
 volume_db = 0.0
@@ -34,5 +29,12 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="Cursor" type="Sprite" parent="." index="1"]
+
+z_index = 1
+texture = ExtResource( 5 )
+centered = false
+_sections_unfolded = [ "Visibility" ]
 
 
