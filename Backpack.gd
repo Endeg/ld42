@@ -182,7 +182,7 @@ func _clearItemAt(x, y, itemType, scoreMultiplicator):
 	var key = Vector2(x, y)
 	if selectedSlotStart == key:
 		selectedSlotStart = null
-		_updateDebugSlot()
+		debugPanel.setEntry("Selected slot", selectedSlotStart)
 	
 	assert board.has(key)
 	
@@ -206,13 +206,3 @@ func addItem(itemType):
 		return true
 	else:
 		return false
-
-func _updateDebugSlot():
-	var startSlotLabel = get_node("../DebugPanel/StartSlot")
-	if startSlotLabel != null:
-		startSlotLabel.text = "Start: " + var2str(selectedSlotStart)
-		
-	var cursorLabel = get_node("../DebugPanel/Cursor")
-	if cursorLabel != null:
-		cursorLabel.text = "Cursor: " + var2str(currentCursorPos)
-	
