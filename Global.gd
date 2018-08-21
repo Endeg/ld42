@@ -3,8 +3,8 @@ extends Node
 const ITEM_TYPES = {
 	0 : [
 		"Coin",
-		"HealthPotion",
-		"ManaPotion",
+		#"HealthPotion",
+		#"ManaPotion",
 	],
 	
 	1 : [

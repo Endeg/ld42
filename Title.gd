@@ -4,6 +4,8 @@ var global = null
 var sidescroller = null
 var status = null
 
+var enabled = true
+
 func _ready():
 	global = get_node("/root/Global")
 	assert global != null
@@ -14,13 +16,15 @@ func _ready():
 	status = get_node("../Status")
 	assert sidescroller != null
 
-
 func startWithSpeed(speed):
-	global.speed = speed
-	$AnimationPlayer.play("Dissolve")
-	sidescroller.moving = true
-	sidescroller.get_node("Timer").start()
-	$StartSound.play()
+	if enabled:
+		global.speed = speed
+		$AnimationPlayer.play("Dissolve")
+		sidescroller.moving = true
+		sidescroller.get_node("Timer").start()
+		$StartSound.play()
+
+		enabled = false
 
 func scheduleForRemoval():
 	queue_free()
