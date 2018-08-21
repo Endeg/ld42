@@ -18,6 +18,8 @@ var global
 func _ready():
 	global = get_node("/root/Global")
 	assert global != null
+	
+	connect("item_cleared", get_parent(), "handleItemClear")
 
 func _exit_tree():
 	board.clear()

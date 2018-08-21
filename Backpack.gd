@@ -23,8 +23,6 @@ func _ready():
 	assert debugPanel != null
 	
 	slots = $Slots
-	
-	connect("item_cleared", self, "handleItemClear")
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -61,8 +59,6 @@ func _input(event):
 		debugPanel.setEntry("Selected slot", selectedSlot)
 
 func handleItemClear(key):
-	#TODO: Signal not handled, need to handle.
-	#      Or find other way around.
 	if selectedSlot == key:
 		selectedSlot = null
 		debugPanel.setEntry("Selected slot", selectedSlot)
