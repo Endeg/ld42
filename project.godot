@@ -27,4 +27,7 @@ window/stretch/aspect="keep"
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
+quality/depth_prepass/enable=false
 environment/default_clear_color=Color( 0, 0, 0, 1 )
+quality/depth/hdr=false
