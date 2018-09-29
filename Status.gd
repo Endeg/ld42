@@ -8,11 +8,11 @@ var lvlLabel = null
 func _ready():
 	global = get_node("/root/Global")
 	assert global != null
-	hpLabel = $HPLabel
+	hpLabel = $StatusGrid/HPLabel
 	assert hpLabel != null
-	xpLabel = $XPLabel
+	xpLabel = $StatusGrid/XPLabel
 	assert xpLabel != null
-	lvlLabel = $LVLLabel
+	lvlLabel = $StatusGrid/LVLLabel
 	assert lvlLabel != null
 	
 func update():

@@ -8,7 +8,7 @@ Game located here: https://endeg.itch.io/ld42-treasure-hoarders-2018
 * Save score
 * Better difficulty curve: more items spawn as level progress - player shouldn't decide to stop game and what till all HP=0
 * Fix graphics glitch in HTML5 
-* Change GUI Layout to make portrait reactions/score visible.
+* Remove available space gradually (?)
 
 # Things to consider
 * Diagonal lines (later probably)
